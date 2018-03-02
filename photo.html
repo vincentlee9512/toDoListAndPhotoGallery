@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="photojs.js" ></script>
+    <title>Photo Gallery</title>
+</head>
+<body onload="" onkeydown="keyListner(event);">
+
+    <!--https://www.w3schools.com/howto/howto_js_lightbox.asp -->
+
+    <h1 id="photoTitle">Lightbox</h1>
+
+    <div class="gallery" >
+
+        <table id="photoColl">
+            <tr>
+                <th><img src="images/basketball.jpg" onclick="openDisplay(); currSlide(0);"></th>
+
+                <th><img src="images/beach.jpg" onclick="openDisplay(); currSlide(1);"></th>
+
+                <th><img src="images/building.jpg" onclick="openDisplay(); currSlide(2);"></th>
+
+                <th><img src="images/building2.jpg" onclick="openDisplay(); currSlide(3);"></th>
+
+                <th><img src="images/building3.jpg" onclick="openDisplay(); currSlide(4);"></th>
+            </tr>
+
+            <tr>
+                <th><img src="images/highBuilding.jpg" onclick="openDisplay(); currSlide(5);"></th>
+
+                <th><img src="images/ship1.jpg" onclick="openDisplay(); currSlide(6);"></th>
+
+                <th><img src="images/ship2.jpg" onclick="openDisplay(); currSlide(7);"></th>
+
+                <th><img src="images/ship4.jpg" onclick="openDisplay(); currSlide(8);"></th>
+
+                <th><img src="images/ship5.jpg" onclick="openDisplay(); currSlide(9);"></th>
+            </tr>
+
+            <tr>
+                <th><img src="images/ship6.jpg" onclick="openDisplay(); currSlide(10);"></th>
+
+                <th><img src="images/ship7.jpg" onclick="openDisplay(); currSlide(11);"></th>
+
+                <th><img src="images/ship8.jpg" onclick="openDisplay(); currSlide(12);"></th>
+
+                <th><img src="images/ship9.jpg" onclick="openDisplay(); currSlide(13);"></th>
+
+                <th><img src="images/tent.jpg" onclick="openDisplay(); currSlide(14);"></th>
+            </tr>
+
+
+            <tr>
+
+                <th><img src="images/tent2.jpg" onclick="openDisplay(); currSlide(15);"></th>
+
+                <th><img src="images/view.jpg" onclick="openDisplay(); currSlide(16);"></th>
+
+                <th><img src="images/view2.jpg" onclick="openDisplay(); currSlide(17);"></th>
+
+                <th><img src="images/view4.jpg" onclick="openDisplay(); currSlide(18);"></th>
+
+                <th><img src="images/view5.jpg" onclick="openDisplay(); currSlide(19);"></th>
+            </tr>
+
+        </table>
+
+    </div>
+
+        <div id="display" >
+            <span id="playButton" class="buttonInDisplay" onclick="playSlides();" >&#9658;</span>
+            <span id="pauseButton" class="buttonInDisplay" onclick="pauseSlides();" >&#10073;&#10073;</span>
+            <span id="closeButton" class="buttonInDisplay" onclick="closeDisplay(); pauseSlides();" >x</span>
+            <div class="display-content"  >
+
+                <div class="slides">
+                    <img src="images/basketball.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/beach.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/building.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/building2.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/building3.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/highBuilding.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship1.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship2.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship4.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship5.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship6.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship7.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship8.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/ship9.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/tent.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/tent2.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/view.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/view2.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/view4.jpg" style="width:100%">
+                </div>
+
+                <div class="slides">
+                    <img src="images/view5.jpg" style="width:100%">
+                </div>
+
+            </div>
+
+            <a id="prev" class="buttonInDisplay" onclick="plusSlides(-1);"><</a>
+            <a id="next" class="buttonInDisplay" onclick="plusSlides(1);">></a>
+
+                <!-- Thumbnail controls-->
+            <div id="thumbnail">
+                <div class="column">
+                    <img class="small" src="images/basketball.jpg" onclick="currSlide(0);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/beach.jpg" onclick="currSlide(1);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/building.jpg" onclick="currSlide(2);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/building2.jpg" onclick="currSlide(3);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/building3.jpg" onclick="currSlide(4);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/highBuilding.jpg" onclick="currSlide(5);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship1.jpg" onclick="currSlide(6);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship2.jpg" onclick="currSlide(7);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship4.jpg" onclick="currSlide(8);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship5.jpg" onclick="currSlide(9);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship6.jpg" onclick="currSlide(10);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship7.jpg" onclick="currSlide(11);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship8.jpg" onclick="currSlide(12);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/ship9.jpg" onclick="currSlide(13);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/tent.jpg" onclick="currSlide(14);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/tent2.jpg" onclick="currSlide(15);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/view.jpg" onclick="currSlide(16);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/view2.jpg" onclick="currSlide(17);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/view4.jpg" onclick="currSlide(18);">
+                </div>
+
+                <div class="column">
+                    <img class="small" src="images/view5.jpg" onclick="currSlide(19);">
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="scriptFile.js"></script>
+    <title>To-do List</title>
+</head>
+<body onload="checkStorage(); startup();">
+    <a href="photo.html" id="photoButton">Photo Gallery</a>
+    <h1 id="top">To-do List</h1>
+    <div id="warning"></div>
+
+    <div id="topButton">
+        <button><a href="#newItem">Add a item</a></button>
+        <br/><br/>
+        <button><a href="#newCate">Create a new category</a> </button>
+    </div>
+
+
+
+
+    <div id="sortingArea">
+        <h4>Sort By: </h4>
+        <select id="sortingSelection">
+            <option value="timeAddedFirst">Created Time ↑ </option>
+            <option value="timeAddedLast">Created Time ↓</option>
+            <option value="deadlineFirst">Deadline ↑</option>
+            <option value="deadlineLast">Deadline ↓</option>
+            <option value="CategoryFirst">Category(A-Z) ↑</option>
+            <option value="CategoryLast">Category(A-Z) ↓</option>
+            <option value="IncompleteFirst">Incomplete → Complete</option>
+            <option value="CompleteFirst">Complete → Incomplete</option>
+        </select>
+        <button onclick="sortList();" id="sortButton">sort</button>
+    </div>
+
+
+    <div>
+        <h4>List: </h4> <p id="emptySign">Empty List</p>
+
+        <ul id="wholeList" ></ul>
+    </div>
+
+
+
+    <div id= "newItem" class="addingArea"  onload="dd();">
+        <h3>Add A Item</h3>
+
+        <h6>Name of the event: </h6>
+        <input type="text" id="event"/>
+
+        <h6>Description: </h6>
+        <input type="text" id="description">
+
+        <h6>Deadline: </h6>
+        <input type="date" id="deadline">
+
+        <h6>Categories:</h6>
+        <form>
+            <select name="categories" id="selection">
+                <option value="reminder">reminder</option>
+                <option value="grocery">grocery</option>
+                <option value="appointment">appointment</option>
+                <option value="bills">bills</option>
+                <option value="" selected="selected"> </option>
+            </select>
+        </form>
+
+
+        <br/><br/>
+        <button onclick="createItem();" id="addingbutton"><a href="#top">Add</a></button>
+        <button onclick="clearInput();" id="clearingbutton">Clear</button>
+    </div>
+
+    <div id="newCate"  class="addingArea">
+        <h3>Add A Category</h3>
+
+        <h6>Name of the Category: </h6>
+        <input type="text" id="category">
+
+        <h6>Choose a Color for your Category: </h6>
+        <input type="color" id="color" value="#000000">
+        <br/><br/>
+
+        <button onclick="createCate();" ><a href="#top">Add</a></button>
+        <button onclick="clearCateInput();">Clear</button>
+    </div>
+
+</body>
+</html>
