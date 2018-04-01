@@ -3,11 +3,11 @@ var cateList=["reminder", "grocery", "appointment", "bills"];
 var colorList=["#4285F4","#34A853","#FBBC05","#EA4335"];
 
 function startup(){
-    if(localStorage['cateList'] === undefined){
+    if(localStorage['categoryList'] === undefined){
         updateCateList();
         console.log("here");
     }else{
-        cateList = JSON.parse(localStorage['cateList']);
+        cateList = JSON.parse(localStorage['categoryList']);
         console.log(cateList);
     }
 
@@ -57,7 +57,7 @@ function updateStorage() {
 }
 
 function updateCateList(){
-    localStorage.setItem("cateList", JSON.stringify(cateList));
+    localStorage.setItem("categoryList", JSON.stringify(cateList));
 }
 
 function updateColorList() {
